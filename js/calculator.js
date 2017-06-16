@@ -14,6 +14,12 @@ var display = 0;
 
   function depositCash(x){
     display += x;
+    return 0;
+  }
+
+  function withdrawCash(x){
+    display -= x;
+    return 0;
   }
 
   return{
@@ -21,6 +27,6 @@ var display = 0;
     restart: clear,
     status: getBalance,
     add: depositCash,
+    subtract: withdrawCash,
   };
 }();
-
