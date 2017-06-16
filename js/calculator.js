@@ -8,12 +8,14 @@ var display = 0;
     return display;
   }
 
-
+  function getBalance(){
+    return display;
+  }
 
   return{
 
     restart: clear,
-
+    status: getBalance,
   };
 }();
 
