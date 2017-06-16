@@ -1,32 +1,36 @@
+window.calculator = (function() {
 
-var Calculator = function() {
+var memory = 0;
+var balance = 0;
 
-var display = 0;
+   return {
 
-  function clear(){
-    display = 0;
-    return display;
+      add: add,
+      subtract: subtract,
+      multiply: multiply,
+      divide: divide,
+
+    };
+
+   function add(x){
+      balance += x;
+      return balan;
+   }
+
+   function subtract(x){
+      balance -= x;
+      return balance;
   }
 
-  function getBalance(){
-    return display;
-  }
+   function multiply(x){
+      balance *= x;
+      return balance;
+   }
 
-  function depositCash(x){
-    display += x;
-    return 0;
-  }
+   function divide(x){
+      balance /= x;
+      return balance;
+   }
 
-  function withdrawCash(x){
-    display -= x;
-    return 0;
-  }
 
-  return{
-
-    restart: clear,
-    status: getBalance,
-    add: depositCash,
-    subtract: withdrawCash,
-  };
-}();
+})();
