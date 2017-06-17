@@ -115,26 +115,25 @@ const num = document.getElementById("button");
 var conquer = document.getElementById("divide");
     conquer.addEventListener('click',function(){
     operation = "divide";
-    cashRegister.meow("divide");
+    cashRegister.loading(storedNumber);
   });
 
 var reproduce = document.getElementById("multiply");
     reproduce.addEventListener('click',function(){
     operation = "multiply";
-    cashRegister.meow("multiply");
+    cashRegister.loading(storedNumber);
   });
 
 var negative = document.getElementById("subtract");
     negative.addEventListener('click',function(){
     opetion = "subtract";
-    cashRegister.meow("subtract");
+    cashRegister.loading(storedNumber);
   });
 
 var positive = document.getElementById("add");
     positive.addEventListener('click',function(){
     operation = "add";
     cashRegister.loading(storedNumber);
-    console.log(storedNumber);
   });
 
 var transform = document.getElementById("equal");
