@@ -1,34 +1,47 @@
 /*jshint esversion: 6 */
 const calc = window.calculator;
+var image = document.getElementById("display");
+var total = 0;
 var balance = 0;
 var operation = null;
-var image = document.getElementById("display");
 var storedNumber;
 
 
+function clearData(){
+    return image.innerHTML = "";
+  }
 
 window.cashRegister = (function(){
-function meow(x){
-    switch(x){
 
-      case 'add': calc.add(storedNumber);
+function meow(operation){
+
+    switch(operation){
+
+      case 'add':
+         balance = calc.add(storedNumber);
         break;
 
-      case 'subtract': calc.subtract(storedNumber);
+
+      case 'subtract':
+        balance = calc.subtract(storedNumber);
         break;
 
-      case 'multiply': calc.multiply(storedNumber);
+      case 'multiply':
+        balance = calc.multiply(storedNumber);
         break;
 
-      case 'divide': calc.divide(storedNumber);
+      case 'divide':
+        balance = calc.divide(storedNumber);
       }
 
-      return parseFloat(storedNumber);
+       return balance;
+
 
 }
 
   function loading(x) {
-    return calc.load(parseFloat(x));
+    total = calc.load(parseFloat(x));
+    console.log(total);
   }
 
   function getTotal() {
@@ -56,8 +69,11 @@ function meow(x){
     getBalance : getBalance,
     depositCash : depositCash,
     withdrawCash : withdrawCash
+
   };
 })();
+
+console.log(total);
 
 const restart = document.getElementById("clear");
       restart.addEventListener("click", function(){
@@ -116,27 +132,33 @@ var conquer = document.getElementById("divide");
     conquer.addEventListener('click',function(){
     operation = "divide";
     cashRegister.loading(storedNumber);
+    clearData();
   });
 
 var reproduce = document.getElementById("multiply");
     reproduce.addEventListener('click',function(){
     operation = "multiply";
     cashRegister.loading(storedNumber);
+    clearData();
   });
 
 var negative = document.getElementById("subtract");
     negative.addEventListener('click',function(){
-    opetion = "subtract";
+    operation = "subtract";
     cashRegister.loading(storedNumber);
+    clearData();
   });
 
 var positive = document.getElementById("add");
     positive.addEventListener('click',function(){
     operation = "add";
     cashRegister.loading(storedNumber);
+    clearData();
   });
 
 var transform = document.getElementById("equal");
     transform.addEventListener('click',function(){
     cashRegister.meow(operation);
+    console.log("equal:", cashRegister.meow(operation));
+
   });
