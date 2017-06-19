@@ -14,7 +14,7 @@ let storedNumber = "";
      return reset;
   }
   function storeValue( nextValue ){
-    storedNumber = nextValue;
+    storedNumber = image.innerHTML + nextValue;
 
   }
   function clearValue(){
@@ -94,7 +94,7 @@ const num = document.getElementById("button");
 
 var conquer = document.getElementById("divide");
     conquer.addEventListener('click',function(event){
-    if(operation!== null){
+    if(operation!== null | operation === "divide"){
 
       if( storedNumber !== "" ){
         meow(operation);
@@ -104,13 +104,13 @@ var conquer = document.getElementById("divide");
 
     operation = "divide";
     calc.load(parseFloat(storedNumber));
-    clearValue();
+    clearScreen();
   }
   });
 
 var reproduce = document.getElementById("multiply");
     reproduce.addEventListener('click',function(event){
-    if(operation!== null){
+    if(operation!== null | operation === "multiply"){
 
       if( storedNumber !== "" ){
         meow(operation);
@@ -120,14 +120,14 @@ var reproduce = document.getElementById("multiply");
 
     operation = "multiply";
     calc.load(parseFloat(storedNumber));
-    clearValue();
+    clearScreen();
   }
   });
 
 var negative = document.getElementById("subtract");
     negative.addEventListener('click',function(event){
 
-    if(operation!== null){
+    if(operation!== null && operation === "subtract"){
 
       if( storedNumber !== "" ){
         meow(operation);
@@ -137,7 +137,7 @@ var negative = document.getElementById("subtract");
 
     operation = "subtract";
     calc.load(parseFloat(storedNumber));
-    clearValue();
+    clearScreen();
   }
   });
 
@@ -153,7 +153,7 @@ var positive = document.getElementById("add");
     } else {
 
     calc.load(parseFloat(storedNumber));
-    clearValue();
+    clearScreen();
   }
     operation = "add";
   });
@@ -183,12 +183,13 @@ function meow(operation){
         break;
 
       case 'divide':
-        calc.add(parseFloat(storedNumber));
+        calc.divide(parseFloat(storedNumber));
         break;
       default:
         throw new Error("shit doesn't work yo -_-");
       }
       console.log("calc getTotal",calc.getTotal());
+      clearValue();
       storeValue(calc.getTotal());
 
       showDisplay();
