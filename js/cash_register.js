@@ -4,7 +4,7 @@
 
 const calc = window.calculator;
 var image = document.getElementById("display");
-var balance = 0;
+var storage = 0;
 var total = 0;
 let operation = null;
 let storedNumber = "";
@@ -42,15 +42,15 @@ const get = document.getElementById("get");
       });
 const deposit = document.getElementById("deposit");
       deposit.addEventListener("click", function(event){
-        storedNumber = parseFloat(display.innerHTML);
-        balance += calc.load(storedNumber);
+        operation = "add";
+        meow(operation);
         clearScreen();
       });
 
 const withdraw = document.getElementById("withdraw");
       withdraw.addEventListener("click", function(event){
-        storedNumber = parseFloat(image.innerHTML);
-        balance -= calc.load(storedNumber);
+        operation = "subtract";
+        meow(operation);
         clearScreen();
       });
 
