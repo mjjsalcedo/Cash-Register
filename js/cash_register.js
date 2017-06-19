@@ -94,51 +94,54 @@ const num = document.getElementById("button");
 
 var conquer = document.getElementById("divide");
     conquer.addEventListener('click',function(event){
-    if(operation!== null | operation === "divide"){
+    if(operation!== null){
 
       if( storedNumber !== "" ){
         meow(operation);
+        clearScreen();
       }
 
     } else {
 
-    operation = "divide";
     calc.load(parseFloat(storedNumber));
     clearScreen();
   }
+    operation = "divide";
   });
 
 var reproduce = document.getElementById("multiply");
     reproduce.addEventListener('click',function(event){
-    if(operation!== null | operation === "multiply"){
+    if(operation!== null){
 
       if( storedNumber !== "" ){
         meow(operation);
+        clearScreen();
       }
 
     } else {
 
-    operation = "multiply";
     calc.load(parseFloat(storedNumber));
     clearScreen();
   }
+    operation = "multiply";
   });
 
 var negative = document.getElementById("subtract");
     negative.addEventListener('click',function(event){
 
-    if(operation!== null && operation === "subtract"){
+    if(operation!== null){
 
       if( storedNumber !== "" ){
         meow(operation);
+        clearScreen();
       }
 
     } else {
 
-    operation = "subtract";
     calc.load(parseFloat(storedNumber));
     clearScreen();
   }
+    operation = "subtract";
   });
 
 var positive = document.getElementById("add");
@@ -148,6 +151,7 @@ var positive = document.getElementById("add");
 
       if( storedNumber !== "" ){
         meow(operation);
+        clearScreen();
       }
 
     } else {
