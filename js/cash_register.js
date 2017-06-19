@@ -5,30 +5,56 @@
 const calc = window.calculator;
 var image = document.getElementById("display");
 var balance = 0;
-
+var total = 0;
 let operation = null;
 let storedNumber = "";
+
+  function storeValue( nextValue ){
+    storedNumber = image.innerHTML + nextValue;
+  }
+
+  function showDisplay(){
+    image.innerHTML = storedNumber;
+  }
+
+  function clearValue(){
+    storedNumber = "";
+  }
 
   function clearScreen(){
      reset = image.innerHTML = "";
      return reset;
   }
-  function storeValue( nextValue ){
-    storedNumber = image.innerHTML + nextValue;
 
-  }
-  function clearValue(){
-    storedNumber = "";
+  function  getBalance(){
+    storeValue(calc.getTotal());
   }
 
-  function showDisplay(){
-    image.innerHTML = storedNumber;
-}
 
 const restart = document.getElementById("clear");
       restart.addEventListener("click", function(event){
-        image.innerHTML = "";
+        clearScreen();
       });
+const get = document.getElementById("get");
+      get.addEventListener("click", function(event){
+        total = getBalance();
+        showDisplay();
+      });
+const deposit = document.getElementById("deposit");
+      deposit.addEventListener("click", function(event){
+        storedNumber = parseFloat(display.innerHTML);
+        balance += calc.load(storedNumber);
+        clearScreen();
+      });
+
+const withdraw = document.getElementById("withdraw");
+      withdraw.addEventListener("click", function(event){
+        storedNumber = parseFloat(image.innerHTML);
+        balance -= calc.load(storedNumber);
+        clearScreen();
+      });
+
+
 const num1 = document.getElementById("button1");
       num1.addEventListener("click", function(event){
         storeValue("1");
